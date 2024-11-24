@@ -32,24 +32,18 @@ function App() {
     }
   ]
 
-  const [currentPage, setCurrentPage] = useState(0); // Tracks the current "page"
+  const [currentPage, setCurrentPage] = useState(0);
 
-  const articlesPerPage = 3; // Number of articles to show per page
-
-  // Calculate the start and end indices for slicing
+  const articlesPerPage = 3;
   const startIndex = currentPage * articlesPerPage;
   const endIndex = startIndex + articlesPerPage;
-
-  // Get the articles to display
   const displayedArticles = articles.slice(startIndex, endIndex);
 
   const handleNext = () => {
-    // Go to the next set (wrap back to start if at the end)
     setCurrentPage((prev) => (prev + 1) % Math.ceil(articles.length / articlesPerPage));
   };
 
   const handlePrev = () => {
-    // Go to the previous set (wrap to end if at the start)
     setCurrentPage((prev) => (prev - 1 + Math.ceil(articles.length / articlesPerPage)) % Math.ceil(articles.length / articlesPerPage));
   };
   return (
