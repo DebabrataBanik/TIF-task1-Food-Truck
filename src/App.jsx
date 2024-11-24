@@ -32,20 +32,22 @@ function App() {
   ]
   return (
     <>
-      <Main />
-      <About />
+      <div className="wrapper">
+        <Main />
+        <About />
 
-      <section className="article__container">
-        <h2 className="article__heading">Latest Articles</h2>
-        <div className="articles">
-          {
-            article.map(
-              (item, index) => <Article key={index} title={item.title} img={item.img} />
-            )
-          }
-        </div>
-      </section>
-      <Footer />
+        <section className="article__container">
+          <h2 className="article__heading">Latest Articles</h2>
+          <div className="articles">
+            {
+              article.map(
+                (item, index) => <Article key={index} title={item.title} img={item.img} />
+              )
+            }
+          </div>
+        </section>
+        <Footer />
+      </div>
     </>
   )
 }
